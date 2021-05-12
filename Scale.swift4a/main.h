@@ -5,11 +5,13 @@
 // getting something to compile, add a normal .c file (and optionally header)
 // with wrapper functions, then declare the wrapper function here instead
 
-_Bool setupLoadCell();
+#include <stdbool.h>
+
+bool setupLoadCell();
 uint8_t updateLoadCell();
 void tareNoDelayLoadCell();
-_Bool getTareStatusLoadCell();
-_Bool refreshDataSetLoadCell();
+bool getTareStatusLoadCell();
+bool refreshDataSetLoadCell();
 float getNewCalibrationLoadCell(float known_mass);
 float getDataLoadCell();
 float getCalFactorLoadCell();

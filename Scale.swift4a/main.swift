@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------------
 //
-// test.swift4a
+// Scale.swift4a
 // Swift For Arduino
 //
 // Created by Martijn Bogaert on 11/05/2021.
@@ -114,20 +114,20 @@ func calibrate() {
 
 func changeSavedCalFactor() {
     let oldCalibrationValue: Float = getCalFactorLoadCell()
-    
+
     print("***")
     print(staticString: "Current value is: ", addNewline: false)
     print(oldCalibrationValue)
     print("Now, send the new value from serial monitor, i.e. 696.0")
 
     let newCalibrationValue: Float = getMultiDigitFloatFromSerial()
-    
+
     print(staticString: "New calibration value is: ", addNewline: false)
     print(newCalibrationValue)
     setCalFactorLoadCell(newCalibrationValue)
-    
+
     saveValueInEEPROM(newCalibrationValue)
-    
+
     print("End change calibration value")
     print("***")
 }

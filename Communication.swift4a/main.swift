@@ -32,7 +32,7 @@ delay(milliseconds: 250) // Time for serial port to stabilize
 sendMassWeightToSerial(currentMassWeight) // Already write start value to serial
 
 // LOOP
-while(true) {
+while true {
     analogReadAsync(pin: potentiometerPin) { value in
         changeLedStripColorDependingOn(massWeight: value)
         

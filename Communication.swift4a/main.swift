@@ -33,13 +33,12 @@ sendMassWeightToSerial(currentMassWeight) // Already write start value to serial
 
 // LOOP
 while true {
-    analogReadAsync(pin: potentiometerPin) { value in
-        changeLedStripColorDependingOn(massWeight: value)
-        
-        if value != currentMassWeight { // Only write to serial when necessary
-            sendMassWeightToSerial(value)
-            currentMassWeight = value
-        }
+    let value = analogReadSync(pin: potentiometerPin)
+    
+    changeLedStripColorDependingOn(massWeight: value)
+    if value != currentMassWeight { // Only write to serial when necessary
+        sendMassWeightToSerial(value)
+        currentMassWeight = value
     }
 
     delay(milliseconds: 1000)
@@ -55,7 +54,7 @@ func changeLedStripColorDependingOn(massWeight value: UInt16) {
     } else {
         colorToDisplay = iLEDOff
     }
-        
+
     if colorToDisplay != currentColorLeds { // Only change color when necessary
         for _ in 1...amountOfLeds {
             iLEDFastWritePixel(color: colorToDisplay)

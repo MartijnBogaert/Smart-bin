@@ -177,7 +177,7 @@ func saveValueInEEPROM(_ value: Float) {
             let inByte = read()
             print("")
             if inByte == 0x79 { //'y'
-                writeEEPROM(address: calVal_eepromAddress, value: UInt8(value))
+                writeEEPROM(address: calVal_eepromAddress, value: UInt8(safe: value) ?? 0)
 
                 print(staticString: "Value ", addNewline: false)
                 print(value, addNewline: false)

@@ -1,17 +1,15 @@
 # Smart bin
-## Swift for Arduino code for Arduino side of IoT project
+## Swift for Arduino code as part of bachelor's thesis
 
-#### Important!
-The projects in this repo have been developed using version 4.4 of Swift for Arduino. If you're using version 4.5 the scale project will fail to build. To get swift.main working again, change this line
+This repository holds two Swift for Arduino projects that are part of a bachelor's thesis I wrote in 2021. The thesis itself is written in Dutch and is also housed in this repository. I did write an abstract in English, though, which explains why I wrote and researched the subject, as well as what the accompanying project entails. The abstract can be found in the next paragraph.
 
-```swift
-writeEEPROM(address: calVal_eepromAddress, value: UInt8(value))
-```
+If you're interested in going through the thesis and/or code, it is important to note that all of it was written while Swift for Arduino was still in the early stages of development. This means that certain thoughts or recommendations could well be invalid by now. While the actual thesis hasn't been tampered with since May 2021, the code has last been updated on 4 April 2022, in order to make it work with Swift for Arduino version 4.9.1.
 
-into this line
+## Abstract
 
-```swift
-writeEEPROM(address: calVal_eepromAddress, value: UInt8(safe: value) ?? 0)
-```
+The Internet of Things is on the rise. The spectrum of possibilities offered by more and more everyday devices is constantly expanding. However, this development is not only due to the increased interest of international companies in the field, but mainly to an ever- expanding market for embedded systems aimed at private individuals. Microcontrollers, and in particular Arduino devices, are perhaps the biggest catalysts in this story. Many hobbyists probably have an Arduino lying around somewhere, but more and more small- scale software companies are also taking a look at the microcontroller. After all, offering a software solution in combination with an IoT device can be music to many customers’ ears. Still, many developers do not yet take the plunge into IoT. The culprit? Language. These days, developers mainly master modern programming languages and therefore, to a lesser extent, C or C++. Yet these two languages are thé languages of choice for controlling Arduinos or other microcontrollers. This implies that hobbyists and software companies have no other option than to retrain themselves or their employees. Or have they?
 
-Unfortunately, due to the C and C++ files, the project still fails to build. We're working on fixing the problem.
+This thesis investigates the possibilities of such a modern programming language with regard to the development of IoT devices, in particular Swift. It begins by diving into the world of the Internet of Things and looks at how exactly an Arduino and a Raspberry Pi - another embedded system - work and fit into this world. Swift for Arduino is also introduced, since the software system appears to be the solution to the proposed problem. It enables developers to bypass C and C++ and use Swift to control Arduinos. Finally, as part of a proof of concept, all the information acquired is used to develop a new IoT device. In concrete terms, the project presents a smart waste bin that weighs how full it is and sends a light signal into the world on the basis of that weight. An Arduino is used to achieve this. The bin is also capable of storing its measurements in a database. This makes it possible for an external device, such as a smartphone, to consult these measurements later on. Because of its standard communication capabilities, a Raspberry Pi is the device
+to resort to in order to achieve this purpose.
+
+The proof of concept shows that Swift is indeed capable of controlling a complete IoT device. However, there is one condition: the code must be built from scratch. Many complex electronics components rely on existing code in the form of a library, which in most cases has been written exclusively for the Arduino ecosystem. Swift for Arduino is not part of this and therefore makes it extremely difficult for the average software developer to use such libraries. Moral of the story? If the plan is to develop an IoT device and build the associated Arduino code from scratch, Swift is certainly a valuable option for hobbyists and software companies. However, if it involves relying on external Arduino libraries, software companies are better off not using it. For hobbyists, on the other hand, this approach still seems to be an interesting challenge to take on. The good news, however, is that Swift for Arduino is in full development, which means that as time passes, this last condition might one day be scrapped.
